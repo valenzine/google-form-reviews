@@ -22,8 +22,8 @@ This project displays customer reviews fetched from a Google Sheets document and
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/valenzine/amor.cflc.email.git
-    cd amor.cflc.email
+    git clone https://github.com/valenzine/google-form-reviews.git
+    cd google-form-reviews
     ```
 
 2. Configure the application:

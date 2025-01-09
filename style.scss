@@ -1,0 +1,59 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#wrapper {
+    background: #E9E9E9;
+
+}
+
+ul.reviews {
+    list-style: none;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    max-width: 1280px;
+    columns: 1;
+    column-gap: 15px;
+    line-height: 150%;
+
+    @media only screen and (min-width: 768px) {
+        columns: 3;
+    }
+
+    li {
+        border: 1px #CCC solid;
+        border-radius: 5px;
+        background: #FFF;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px 0px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+
+        p {
+            margin: 0.5rem 0;
+        }
+    }
+
+    .name {
+        font-family: Arial, sans-serif;
+        font-size: 1.05rem;
+    }
+
+    span.date {
+        display: block;
+        font-size: 0.95rem;
+        margin-top: 1rem;
+        color: #a8a7a7;
+        text-align:right;
+    }
+}

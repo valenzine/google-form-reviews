@@ -32,10 +32,10 @@ if (isset($_GET['ajax'])) {
     <meta property="og:title" content="<?php echo htmlspecialchars($socialTitle); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($socialDescription); ?>">
     <meta property="og:image" content="<?php echo htmlspecialchars($socialImage); ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($socialTitle); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($socialDescription); ?>">
     <meta name="twitter:image" content="<?php echo htmlspecialchars($socialImage); ?>">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="style.css?v=<?php echo $version; ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

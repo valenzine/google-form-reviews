@@ -8,7 +8,19 @@ body {
 header {
     max-width: 600px;
     margin: 50px auto;
+    padding: 0 20px;
     text-align: center;
+
+    h1 {
+        @media screen and (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        border-bottom: 1px dashed #006669;
+    }
 }
 
 #wrapper {

@@ -90,7 +90,7 @@ if (isset($_GET['ajax'])) {
         let currentPage = 0;
         let loading = false;
         let allReviews = [];
-        const itemsPerBatch = 15;
+        const itemsPerBatch = 12;
 
         function insertNewsletterBox(container) {
             const newsletterElement = document.createElement('div');

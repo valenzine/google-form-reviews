@@ -1,3 +1,11 @@
+<?php
+require 'config.php';
+require 'version.php';
+
+if (empty($sheetId) || empty($sheetName) || empty($apiKey) || empty($locale)) {
+    die('Configuration not set. Please ensure config.php is properly configured.');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +22,8 @@
 
 <body>
     <?php
-    require 'config.php';
-    require 'version.php';
 
-    if (empty($sheetId) || empty($sheetName) || empty($apiKey) || empty($locale)) {
-        die('Configuration not set. Please ensure config.php is properly configured.');
-    }
-
-    function convertDate($dateString)
+    function convertDate($dateString, $locale)
     {
         $date = DateTime::createFromFormat('m/d/Y H:i:s', $dateString);
         setlocale(LC_TIME, $locale);
@@ -54,7 +56,7 @@
         foreach ($data['values'] as $row) {
             $name = $row[2] ?? '';
             $comment = htmlspecialchars($row[1]);
-            $date = convertDate(htmlspecialchars($row[0]));
+            $date = convertDate(htmlspecialchars($row[0]), $locale);
 
             echo "<li>";
             echo (!empty($name) ? "<div class=\"name\">" . htmlspecialchars($name) . "</div>" : '') . "<p>" . $comment . "</p><span class=\"date\">" . $date . "</span>";
@@ -66,6 +68,9 @@
     }
         ?>
         </div>
+        <footer>
+            <p>Made with ❤️ and ☕️ in Torino, Italy by <a href="https://valentinmuro.com" target="_blank">Valentin Muro</a></p>
+        </footer>
 </body>
 
 </html>

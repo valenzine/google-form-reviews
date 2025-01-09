@@ -4,6 +4,8 @@
 
 This project displays customer reviews fetched from a Google Sheets document and displays them on a web page. The reviews are collected via a Google Forms survey and automatically populated into the Google Sheets document.
 
+This project was inspired by [Senja](https://senja.io/).
+
 ## Features
 
 - Fetches reviews from a Google Sheets document

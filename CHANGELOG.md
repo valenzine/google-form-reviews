@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-01-09
+### Changed
+- Implemented AJAX loading for reviews with infinite scroll
+- Enhanced layout with responsive design and column-based display
+- Added loading indicator for better user experience
+
 ## [0.1.1] - 2025-01-09
 ### Added
 - Added footer with credits.

@@ -14,44 +14,54 @@ header {
   background: #E9E9E9;
 }
 
-ul.reviews {
-  list-style: none;
-  max-width: 800px;
+.reviews-container {
+  max-width: 1280px;
   margin: auto;
   padding: 30px;
-  max-width: 1280px;
-  columns: 1;
-  column-gap: 15px;
-  line-height: 150%;
+  display: flex;
+  gap: 15px;
 }
-@media only screen and (min-width: 768px) {
-  ul.reviews {
-    columns: 3;
+@media only screen and (max-width: 768px) {
+  .reviews-container {
+    flex-direction: column;
   }
 }
-ul.reviews li {
+
+.reviews-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-item {
   border: 1px #CCC solid;
   border-radius: 5px;
   background: #FFF;
-  margin: 0 0 15px;
   padding: 15px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px 0px;
-  break-inside: avoid;
-  page-break-inside: avoid;
+  line-height: 150%;
 }
-ul.reviews li p {
+.review-item p {
   margin: 0.5rem 0;
 }
-ul.reviews .name {
+.review-item .name {
   font-family: Arial, sans-serif;
   font-size: 1.05rem;
 }
-ul.reviews span.date {
+.review-item .date {
   display: block;
   font-size: 0.95rem;
   margin-top: 1rem;
   color: #a8a7a7;
   text-align: right;
+}
+
+#loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=style.css.map */

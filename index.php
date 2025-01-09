@@ -45,14 +45,22 @@ if (isset($_GET['ajax'])) {
             <div class="reviews-column"></div>
             <div class="reviews-column"></div>
             <div class="reviews-column"></div>
+            <div id="loading" style="display: none;"><?php echo htmlspecialchars($loadingMessage); ?></div>
         </div>
-        <div id="loading" style="display: none;">Loading more reviews...</div>
     </div>
     <footer>
         <p>Made with ❤️ and ☕️ in Torino, Italy by <a href="https://valentinmuro.com" target="_blank">Valentin Muro</a></p>
     </footer>
 
     <script>
+        const newsletterHTML = `<div class="review-item subscribe">
+            <div>
+                <h4><?php echo htmlspecialchars($newsletterTitle); ?></h4>
+                <p><?php echo htmlspecialchars($newsletterDescription); ?></p>
+                <a class="button" href="<?php echo htmlspecialchars($newsletterButtonUrl); ?>" target="_blank"><?php echo htmlspecialchars($newsletterButtonText); ?></a>
+            </div>
+        </div>`;
+
         function convertDate(dateString) {
             const date = new Date(dateString);
             const monthNames = [
@@ -66,6 +74,12 @@ if (isset($_GET['ajax'])) {
         let loading = false;
         let allReviews = [];
         const itemsPerBatch = 15;
+
+        function insertNewsletterBox(container) {
+            const newsletterElement = document.createElement('div');
+            newsletterElement.innerHTML = newsletterHTML;
+            container.appendChild(newsletterElement.firstChild);
+        }
 
         async function loadReviews() {
             if (loading) return;
@@ -84,7 +98,22 @@ if (isset($_GET['ajax'])) {
             
             if (batch.length > 0) {
                 const columns = document.querySelectorAll('.reviews-column');
+                const isFirstBatch = currentPage === 0;
+                const randomPosition = isFirstBatch ? -1 : Math.floor(Math.random() * batch.length);
+                
                 batch.forEach((row, index) => {
+                    const columnIndex = index % 3;
+                    
+                    // For first batch, insert newsletter after first item in middle column
+                    if (isFirstBatch && columnIndex === 1 && index === 4) {
+                        insertNewsletterBox(columns[1]);
+                    }
+                    
+                    // For subsequent batches, insert newsletter randomly
+                    if (!isFirstBatch && index === randomPosition) {
+                        insertNewsletterBox(columns[columnIndex]);
+                    }
+                    
                     const reviewElement = document.createElement('div');
                     reviewElement.className = 'review-item';
                     const name = row[2] || '';
@@ -97,7 +126,7 @@ if (isset($_GET['ajax'])) {
                         <span class="date">${date}</span>
                     `;
                     
-                    columns[index % 3].appendChild(reviewElement);
+                    columns[columnIndex].appendChild(reviewElement);
                 });
                 currentPage++;
             }

@@ -44,11 +44,13 @@ header {
 
     p {
         margin: 0.5rem 0;
+        color: #374151;
     }
 
     .name {
         font-family: Arial, sans-serif;
         font-size: 1.05rem;
+        font-weight: 500;
     }
 
     .date {
@@ -58,6 +60,31 @@ header {
         color: #a8a7a7;
         text-align: right;
     }
+
+    &.subscribe {
+
+
+        h4 {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            margin: 0;
+        }
+
+        p {
+            color: #000;
+        }
+
+        a.button {
+            background: #006669;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            text-align: center;
+            border-radius: 7px;
+            margin: 1rem 0;
+        }
+    }
 }
 
 #loading {
@@ -65,4 +92,6 @@ header {
     padding: 20px;
     color: #666;
     font-style: italic;
+    clear: both;
+    width: 100%;
 }

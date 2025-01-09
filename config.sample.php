@@ -10,4 +10,11 @@ $websiteTitle = 'Your Website Title';
 $websiteDescription = 'Your website description';
 $h1Title = 'Your H1 Title';
 $h1Description = 'Your H1 description';
+$loadingMessage = 'Your loading message';
+
+// Newsletter subscription configuration
+$newsletterTitle = 'Your Newsletter Title';
+$newsletterDescription = 'Your newsletter description';
+$newsletterButtonText = 'Subscribe';
+$newsletterButtonUrl = 'https://your-subscription-url.com';
 ?>

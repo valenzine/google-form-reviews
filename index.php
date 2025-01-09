@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Reviews</title>
+    <title><?php echo htmlspecialchars($websiteTitle); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($websiteDescription); ?>">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,11 @@
 <body>
     <?php
     require 'config.php';
+    require 'version.php';
+
+    if (empty($sheetId) || empty($sheetName) || empty($apiKey) || empty($locale)) {
+        die('Configuration not set. Please ensure config.php is properly configured.');
+    }
 
     function convertDate($dateString)
     {
@@ -36,8 +42,8 @@
 
     ?>
         <header>
-            <h1>¿Por qué te gusta <em>Cómo funcionan las cosas</em>?</h1>
-            <div>En los años que llevo escribiendo <em>Cómo funcionan las cosas</em>, mi newsletter, se me acumularon cientos de comentarios acerca de mi trabajo. Estos son algunos de ellos.</div>
+            <h1><?php echo $h1Title; ?></h1>
+            <div><?php echo $h1Description; ?></div>
         </header>
         <div id="wrapper">
 

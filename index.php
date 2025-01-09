@@ -11,7 +11,7 @@ if (isset($_GET['ajax'])) {
     $url = "https://sheets.googleapis.com/v4/spreadsheets/$sheetId/values/$sheetName?key=$apiKey";
     $response = file_get_contents($url);
     $data = json_decode($response, true);
-    
+
     if ($data && isset($data['values'])) {
         $data['values'] = array_reverse($data['values']);
         echo json_encode($data['values']);
@@ -29,6 +29,12 @@ if (isset($_GET['ajax'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($websiteTitle); ?></title>
     <meta name="description" content="<?php echo htmlspecialchars($websiteDescription); ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($socialTitle); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($socialDescription); ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($socialImage); ?>">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($socialTitle); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($socialDescription); ?>">
+    <meta name="twitter:image" content="<?php echo htmlspecialchars($socialImage); ?>">
     <link rel="stylesheet" href="style.css?v=<?php echo $version; ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +70,7 @@ if (isset($_GET['ajax'])) {
         function convertDate(dateString) {
             const date = new Date(dateString);
             const monthNames = [
-                'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 
+                'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
                 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
             ];
             return `${date.getDate()} de ${monthNames[date.getMonth()]}, ${date.getFullYear()}`;
@@ -84,53 +90,53 @@ if (isset($_GET['ajax'])) {
         async function loadReviews() {
             if (loading) return;
             loading = true;
-            
+
             document.getElementById('loading').style.display = 'block';
-            
+
             if (allReviews.length === 0) {
                 const response = await fetch('index.php?ajax=1');
                 allReviews = await response.json();
             }
-            
+
             const start = currentPage * itemsPerBatch;
             const end = start + itemsPerBatch;
             const batch = allReviews.slice(start, end);
-            
+
             if (batch.length > 0) {
                 const columns = document.querySelectorAll('.reviews-column');
                 const isFirstBatch = currentPage === 0;
                 const randomPosition = isFirstBatch ? -1 : Math.floor(Math.random() * batch.length);
-                
+
                 batch.forEach((row, index) => {
                     const columnIndex = index % 3;
-                    
+
                     // For first batch, insert newsletter after first item in middle column
                     if (isFirstBatch && columnIndex === 1 && index === 4) {
                         insertNewsletterBox(columns[1]);
                     }
-                    
+
                     // For subsequent batches, insert newsletter randomly
                     if (!isFirstBatch && index === randomPosition) {
                         insertNewsletterBox(columns[columnIndex]);
                     }
-                    
+
                     const reviewElement = document.createElement('div');
                     reviewElement.className = 'review-item';
                     const name = row[2] || '';
                     const comment = row[1];
                     const date = convertDate(row[0]);
-                    
+
                     reviewElement.innerHTML = `
                         ${name ? `<div class="name">${name}</div>` : ''}
                         <p>${comment}</p>
                         <span class="date">${date}</span>
                     `;
-                    
+
                     columns[columnIndex].appendChild(reviewElement);
                 });
                 currentPage++;
             }
-            
+
             document.getElementById('loading').style.display = 'none';
             loading = false;
         }

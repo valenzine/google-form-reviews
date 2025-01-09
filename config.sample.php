@@ -17,4 +17,9 @@ $newsletterTitle = 'Your Newsletter Title';
 $newsletterDescription = 'Your newsletter description';
 $newsletterButtonText = 'Subscribe';
 $newsletterButtonUrl = 'https://your-subscription-url.com';
+
+// Social meta tag configuration
+$socialTitle = 'Your Social Title';
+$socialDescription = 'Your social description';
+$socialImage = 'https://example.com/image.jpg';
 ?>

@@ -2,6 +2,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin: 0;
 }
 
 header {
@@ -84,6 +85,15 @@ header {
   font-style: italic;
   clear: both;
   width: 100%;
+}
+
+footer {
+  text-align: center;
+  color: #444;
+  font-size: 0.85rem;
+}
+footer p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -22,4 +22,8 @@ $newsletterButtonUrl = 'https://your-subscription-url.com';
 $socialTitle = 'Your Social Title';
 $socialDescription = 'Your social description';
 $socialImage = 'https://example.com/image.jpg';
+
+// Google Analytics configuration
+$enableGA4 = false;
+$googleAnalyticsMeasurementId = '';
 ?>

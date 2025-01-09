@@ -40,6 +40,15 @@ if (isset($_GET['ajax'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <?php if ($enableGA4 && !empty($googleAnalyticsMeasurementId)): ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $googleAnalyticsMeasurementId; ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<?php echo $googleAnalyticsMeasurementId; ?>');
+    </script>
+    <?php endif; ?>
 </head>
 
 <body>
@@ -57,6 +66,7 @@ if (isset($_GET['ajax'])) {
     </div>
     <footer>
         <p>Made with ❤️ and ☕️ in Torino, Italy by <a href="https://valentinmuro.com" target="_blank">Valentin Muro</a></p>
+        <p>View the source on <a href="https://github.com/valenzine/google-form-reviews" target="_blank">GitHub</a> – Licensed under GNU GPL v3.</p>
     </footer>
 
     <script>

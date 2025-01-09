@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [0.1.4] - 2025-01-09
+### Added
+- Newsletter subscription configuration
+
+## [0.1.3] - 2025-01-09
+### Changed
+- Added version query string to stylesheet link for cache busting
+
 ## [0.1.2] - 2025-01-09
 ### Changed
 - Implemented AJAX loading for reviews with infinite scroll

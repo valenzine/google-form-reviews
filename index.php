@@ -35,6 +35,7 @@ if (isset($_GET['ajax'])) {
     <meta name="twitter:title" content="<?php echo htmlspecialchars($socialTitle); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($socialDescription); ?>">
     <meta name="twitter:image" content="<?php echo htmlspecialchars($socialImage); ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="style.css?v=<?php echo $version; ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

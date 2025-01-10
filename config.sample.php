@@ -26,4 +26,6 @@ $socialImage = 'https://example.com/image.jpg';
 // Google Analytics configuration
 $enableGA4 = false;
 $googleAnalyticsMeasurementId = '';
+
+$reviewCounterText = 'Total Reviews: <span id="numberReviews">0</span>'; // e.g., 'Total Reviews: ';
 ?>

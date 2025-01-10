@@ -20,6 +20,21 @@ header {
     a {
         text-decoration: none;
         border-bottom: 1px dashed #006669;
+        color: #006669
+    }
+
+    .cta-button {
+        color: #FFF;
+        background: #000;
+        border: none;
+        margin-top: 1.5rem;
+        padding: 0.625rem 2rem;
+        border-radius: 9999px;
+        display: inline-block;
+
+        &:hover {
+            background: lighten($color: #000000, $amount: 25%);
+        }
     }
 }
 
@@ -76,7 +91,6 @@ header {
 
     &.subscribe {
 
-
         h4 {
             font-size: 1.25rem;
             line-height: 1.75rem;
@@ -96,6 +110,9 @@ header {
             text-align: center;
             border-radius: 7px;
             margin: 1rem 0;
+            &:hover {
+                background: #000;
+            }
         }
     }
 }
@@ -113,6 +130,8 @@ footer {
     text-align: center;
     color: #444;
     font-size: 0.85rem;
+    margin: 1rem;
+    
     p {
         margin: 0;
     }

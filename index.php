@@ -50,11 +50,11 @@ if (isset($_GET['ajax'])) {
     </script>
     <?php endif; ?>
 </head>
-
 <body>
     <header>
         <h1><?php echo $h1Title; ?></h1>
         <div><?php echo $h1Description; ?></div>
+        <a href="<?php echo htmlspecialchars($newsletterButtonUrl); ?>" target="_blank" class="cta-button"><?php echo htmlspecialchars($newsletterButtonText); ?></a>
     </header>
     <div id="wrapper">
         <div class="reviews-container">
@@ -108,6 +108,8 @@ if (isset($_GET['ajax'])) {
                 const response = await fetch('index.php?ajax=1');
                 allReviews = await response.json();
             }
+
+            document.getElementById('numberReviews').textContent = allReviews.length;
 
             const start = currentPage * itemsPerBatch;
             const end = start + itemsPerBatch;
